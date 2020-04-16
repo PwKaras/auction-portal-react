@@ -1,0 +1,40 @@
+{
+    "product": [
+        {
+            "id": 1,
+            "name": "product A",
+            "image": "https://picsum.photos/seed/picsum/200/300",
+            "decription": "Lorem ipsum dolor sit.",
+            "price": 13
+        },
+        {
+            "id": 37,
+            "name": "product B",
+            "image": "https://picsum.photos/seed/picsum/200/300",
+            "decription": "Lorem ipsum dolor sit.",
+            "price": 26
+        },
+        {
+            "id": 38,
+            "name": "product C",
+            "image": "https://picsum.photos/seed/picsum/200/300",
+            "decription": "Lorem ipsum dolor sit.",
+            "price": 100
+        },
+        {
+            "id": 39,
+            "name": "product D",
+            "image": "https://picsum.photos/seed/picsum/200/300",
+            "decription": "Lorem ipsum dolor sit.",
+            "price": 15
+        },
+        {
+            "id": 3,
+            "name": "product E",
+            "image": "https://picsum.photos/seed/picsum/200/300",
+            "decription": "Lorem ipsum dolor sit.",
+            "price": 300
+        }
+    ],
+    "cart_items": []
+}
