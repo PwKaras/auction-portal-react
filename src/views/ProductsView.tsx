@@ -1,11 +1,14 @@
 import React from 'react';
 import { Product } from './Product';
+import { Header } from '../components/Header';
 import { Card } from '../components/ProductCard';
+import { Footer } from '../components/Footer';
 
 type P = {}
 type S = {
     products: Product[]
 }
+
 
 export class ProductsView extends React.Component<P, S> {
     state: S = {
@@ -24,22 +27,16 @@ export class ProductsView extends React.Component<P, S> {
 
     render() {
         return <div>
-            <div className="row row-cols-1 row-cols-md-4">
 
-                {this.state.products.map(product =>
-                    <Card product={product} key={product.id} />
-                )}
-
+            <Header />
+            <div className="card p-5">
+                <div className="row row-cols-1 row-cols-md-4">
+                    {this.state.products.map(product =>
+                        <Card product={product} key={product.id} />
+                    )}
+                </div>
             </div>
-
-            {/* <ul>
-                {this.state.products.map(product => {
-                    return <ul key={product.id}>
-                        <li>{product.name}</li>
-                        <img src={product.image} alt="" />
-                    </ul>
-                })}
-            </ul> */}
+            <Footer />
 
         </div>
     }
