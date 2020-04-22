@@ -1,10 +1,10 @@
 import React from 'react'
 
 export interface Product {
-    id: number;
+    id?: number;
     name: string;
     image?: string;
-    decription: string;
-    price: number;
+    description: string;
+    price?: number;
 }
 

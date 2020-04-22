@@ -19,7 +19,7 @@ export class ProductsView extends React.Component<P, S> {
         this.loadProducts()
     }
     loadProducts = () => {
-        fetch('http://localhost:9000/product')
+        fetch('http://localhost:9000/products')
             .then(a => a.json())
             .then((data: Product[]) => {
                 this.setState({ products: data })

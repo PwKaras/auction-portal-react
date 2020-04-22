@@ -3,22 +3,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 
 type P = {}
-type S = {
-    id?: number;
-    name: string;
-    image?: string;
-    description?: string;
-    price?: number;
-}
+type S =
+    {
+        id?: number;
+        name: string;
+        image?: string;
+        description?: string;
+        price?: number | string;
+    }
 
 export class AddProductFrom extends React.Component<P, S> {
-    state: S = {
-        id: 0,
-        name: '',
-        image: '',
-        description: '',
-        price: 0
-    }
+    state: S
+        = {
+            name: 'Please - give me name.',
+            image: 'https://i.picsum.photos/id/696/200/300.jpg',
+            description: 'Please, tell something about me.',
+            price: 0,
+        }
 
     handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target
@@ -28,14 +29,13 @@ export class AddProductFrom extends React.Component<P, S> {
                 break;
             case 'image': this.setState({ image: value });
                 break;
-            // case 'price': this.setState({price:value});
-            // break;
+            case 'price': this.setState({ price: value });
+                break;
         }
     }
     handleText = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        console.log('jestem tekstem')
         const description = event.target.value
-        this.setState({description})
+        this.setState({ description })
     }
 
     addProduct = () => {
@@ -46,7 +46,7 @@ export class AddProductFrom extends React.Component<P, S> {
             price: this.state.price,
             // id?:
         }
-        axios.post('http://localhost:9000/product', {
+        axios.post('http://localhost:9000/products', {
             ...newProduct
         })
             .then(resp => console.log(resp.data))
@@ -72,7 +72,7 @@ export class AddProductFrom extends React.Component<P, S> {
                                             <FontAwesomeIcon icon="edit" />
                                         </span>
                                     </div>
-                                    <input type="text" className="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"
+                                    <input type="text" className="form-control" placeholder="" aria-describedby="basic-addon1"
                                         name="name"
                                         onChange={this.handleInput}
                                     />
@@ -84,32 +84,34 @@ export class AddProductFrom extends React.Component<P, S> {
                                             <FontAwesomeIcon icon="image" />
                                         </span>
                                     </div>
-                                    <input type="text" className="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon2"
+                                    <input type="text" className="form-control" placeholder="" aria-describedby="basic-addon2"
                                         name='image'
                                         onChange={this.handleInput}
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="exampleFormControlTextarea1">Opis aukcji</label>
-                                    <textarea className="form-control" id="exampleFormControlTextarea1"
+                                    <label htmlFor="FormControlTextarea1">Opis aukcji</label>
+                                    <textarea className="form-control" id="FormControlTextarea1"
                                         name="description"
                                         onChange={this.handleText}></textarea>
                                 </div>
-                                <label htmlFor="basic-addon3" className=" font-weight-bold">Cena brutto</label>
+                                <label htmlFor="basic-addon3" className=" font-weight-bold">Cena brutto
+                                </label>
                                 <div className="input-group mb-3">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text" id="basic-addon3">
                                             <FontAwesomeIcon icon="tag" />
                                         </span>
                                     </div>
-                                    <input type="number" className="form-control" id="basic-addon3" aria-label="Amount (to the nearest dollar)"
+                                    <input
                                         name="price"
+                                        type="number" className="form-control"
                                         onChange={this.handleInput} />
                                 </div>
                                 <button type="submit" className="btn btn-primary float-right"
                                     onClick={this.addProduct}>
-                                    <FontAwesomeIcon icon="gavel" />
-                                    wystaw przedmiot
+                                    <FontAwesomeIcon icon="gavel" /> 
+                                    <span> wystaw przedmiot</span>
                                 </button>
                             </form>
                         </div>
