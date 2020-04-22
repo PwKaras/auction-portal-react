@@ -1,40 +1,56 @@
 {
-    "product": [
-        {
-            "id": 1,
-            "name": "product A",
-            "image": "https://picsum.photos/seed/picsum/200/300",
-            "decription": "Lorem ipsum dolor sit.",
-            "price": 13
-        },
-        {
-            "id": 37,
-            "name": "product B",
-            "image": "https://picsum.photos/id/36/200/300",
-            "decription": "Lorem ipsum dolor sit.",
-            "price": 26
-        },
-        {
-            "id": 38,
-            "name": "product C",
-            "image": "https://picsum.photos/id/48/200/300",
-            "decription": "Lorem ipsum dolor sit.",
-            "price": 100
-        },
-        {
-            "id": 39,
-            "name": "product D",
-            "image": "https://picsum.photos/id/160/200/300",
-            "decription": "Lorem ipsum dolor sit.",
-            "price": 15
-        },
-        {
-            "id": 3,
-            "name": "product E",
-            "image": "https://picsum.photos/id/183/200/300",
-            "decription": "Lorem ipsum dolor sit.",
-            "price": 300
-        }
-    ],
-    "cart_items": []
+  "product": [
+    {
+      "id": 1,
+      "name": "product A",
+      "image": "https://picsum.photos/seed/picsum/200/300",
+      "description": "Lorem ipsum dolor sit.",
+      "price": 13
+    },
+    {
+      "id": 37,
+      "name": "product B",
+      "image": "https://picsum.photos/id/36/200/300",
+      "description": "Lorem ipsum dolor sit.",
+      "price": 26
+    },
+    {
+      "id": 38,
+      "name": "product C",
+      "image": "https://picsum.photos/id/48/200/300",
+      "description": "Lorem ipsum dolor sit.",
+      "price": 100
+    },
+    {
+      "id": 39,
+      "name": "product D",
+      "image": "https://picsum.photos/id/160/200/300",
+      "description": "Lorem ipsum dolor sit.",
+      "price": 15
+    },
+    {
+      "id": 3,
+      "name": "product E",
+      "image": "https://picsum.photos/id/183/200/300",
+      "description": "Lorem ipsum dolor sit.",
+      "price": 300
+    },
+    {
+      "newProduct": {
+        "name": "Adam",
+        "image": "https://picsum.photos/200",
+        "description": "jesetem nowym produktem",
+        "price": 0
+      },
+      "id": 40
+    },
+    {
+      "name": "safd",
+      "image": "https://picsum.photos/200",
+      "description": "fsdf",
+      "price": 0,
+      "id": 41
+    }
+  ],
+  "cart_items": []
 }

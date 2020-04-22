@@ -1,6 +1,5 @@
 import React from 'react';
 import { Navigation } from './Navigation';
-import { PageTitle } from './PageTitle';
 
 export const Header = ( ) => (
     <div className="card">
@@ -11,7 +10,6 @@ export const Header = ( ) => (
             <li className="list-group-item pl-3">
                 <Navigation />
             </li>
-            <PageTitle/>
         </ul>
     </div>
 );

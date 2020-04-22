@@ -7,6 +7,6 @@ import { PageTitle } from '../components/PageTitle';
 export const SuggestionsViews = () => (
     <>
         <Header />
-    {/* <PageTitle>Promocje</PageTitle> */}
+    <PageTitle>Podpowiadamy</PageTitle>
     </>
 ) 
