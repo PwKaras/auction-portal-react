@@ -108,9 +108,9 @@ export class AddProductFrom extends React.Component<P, S> {
                                         type="number" className="form-control"
                                         onChange={this.handleInput} />
                                 </div>
-                                <button type="submit" className="btn btn-primary float-right"
+                                <button type="submit" className="btn btn-primary shadow float-right"
                                     onClick={this.addProduct}>
-                                    <FontAwesomeIcon icon="gavel" /> 
+                                    <FontAwesomeIcon icon="gavel" />
                                     <span> wystaw przedmiot</span>
                                 </button>
                             </form>
