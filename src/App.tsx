@@ -10,23 +10,23 @@ import { AddAuctionView } from './views/AddAuctionView';
 import { BasketView } from './views/BasketView';
 import { LoginView } from './views/LoginView';
 import './App.css';
+import { UserProvider } from './UserContext';
 
 library.add(faCartPlus, faImage, faEdit, faTag, faGavel, faPlus, faShoppingBasket, faSignInAlt, faEnvelope, faKey, faUser, faSearch);
 
 function App() {
-  return (<>
-    <div className="container mt-5">
+  return (
+    <UserProvider>
       <Switch>
         <Route path="/" exact component={ProductsView} />
         <Route path="/promotions" component={PromotionsView} />
-        <Route path="/suggestions" component={SuggestionsViews}/>
+        <Route path="/suggestions" component={SuggestionsViews} />
         <Route path="/basket" component={BasketView} />
         <Route path="/log" component={LoginView} />
         <Route path="/addAuction" component={AddAuctionView} />
-        <Route path="**" render={()=>(<h1>404 Page not found</h1>)} />
+        <Route path="**" render={() => (<h1>404 Page not found</h1>)} />
       </Switch>
-    </div>
-  </>);
+    </UserProvider>);
 }
 
 export default App;

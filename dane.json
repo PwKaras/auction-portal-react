@@ -35,13 +35,32 @@
       "description": "Lorem ipsum dolor sit.",
       "price": 300
     },
-     {
+    {
       "name": "Nowy produkt",
       "image": "https://i.picsum.photos/id/696/200/300.jpg",
       "description": "To jest produkt dodany z widoku add Auction",
       "price": "71",
       "id": 41
+    },
+    {
+      "name": "Tabliczka",
+      "image": "https://i.picsum.photos/id/696/200/300.jpg",
+      "description": "to jest drugi dodany produkt",
+      "price": "232",
+      "id": 42
     }
   ],
-  "cart_items": []
+  "cart_items": [],
+  "users": [
+    {
+      "username": "admin",
+      "password": "admin",
+      "email": "admin@admin.com"
+    },
+    {
+      "username": "Jan",
+      "password": "test",
+      "email": "jan@test.com"
+    }
+  ]
 }
