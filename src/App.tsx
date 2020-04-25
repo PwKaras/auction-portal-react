@@ -24,7 +24,7 @@ function App() {
         <Route path="/basket" component={BasketView} />
         <Route path="/log" component={LoginView} />
         <Route path="/addAuction" component={AddAuctionView} />
-        <Route path="**" render={() => (<h1>404 Page not found</h1>)} />
+        <Route path="**" render={() => <h1>404 Page not found </h1>} />
       </Switch>
     </UserProvider>);
 }

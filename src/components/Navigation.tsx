@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from './Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { UserContext } from '../UserContext';
 
 export const Navigation = () => (
 
