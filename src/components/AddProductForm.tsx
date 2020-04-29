@@ -29,7 +29,8 @@ export class AddProductFrom extends React.Component<P, S> {
                 break;
             case 'image': this.setState({ image: value });
                 break;
-            case 'price': this.setState({ price: value });
+            case 'price': let intValue = parseInt(value) 
+            this.setState({ price: intValue });
                 break;
         }
     }

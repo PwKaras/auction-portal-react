@@ -1,7 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import { UserContext } from '../UserContext';
+import { UserContext } from '../providers/UserContext';
+import { InfoCard } from './InfoCard';
 
 type P = {}
 type S = {
@@ -11,7 +12,7 @@ type S = {
 
 export class LoginForm extends React.Component<P, S>{
 
-static contextType = UserContext
+    static contextType = UserContext
 
     state: S = {
         email: '',
@@ -19,7 +20,6 @@ static contextType = UserContext
     }
 
     tryLogin = () => {
-        console.log('sto lat')
         axios.get('http://localhost:9000/users', {
             params: {
                 email: this.state.email,
@@ -28,7 +28,6 @@ static contextType = UserContext
         })
             .then(resp => {
                 if (resp.data.length) {
-                    console.log('succes');
                     this.context.setUser(resp.data)
                 }
                 else { console.log('try again') }
@@ -36,7 +35,6 @@ static contextType = UserContext
     };
 
     handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log('helo')
         const { name, value } = event.target
         switch (name) {
             case
@@ -54,8 +52,7 @@ static contextType = UserContext
 
     render() {
         return (
-            <div className="container mt-5">
-                <div className="card col-5 m-auto p-3">
+                    <InfoCard>
                     <label htmlFor="basic-addon1"
                         className=" font-weight-bold">
                         Adres e-mail
@@ -93,8 +90,7 @@ static contextType = UserContext
                             <span> Zaloguj</span>
                         </button>
                     </div>
-                </div>
-            </div>
+                    </InfoCard>
         )
     }
 }
