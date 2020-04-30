@@ -10,7 +10,6 @@ type P = {
 }
 type S = {
     products: Product[]
-    product: Product | null
 }
 
 
@@ -18,7 +17,7 @@ export class ProductsView extends React.Component<P, S> {
 
     state: S = {
         products: [],
-        product: null
+        // product: null
     }
     componentDidMount() {
         this.loadProducts()
@@ -31,26 +30,19 @@ export class ProductsView extends React.Component<P, S> {
             })
     }
 
-    addToCart = (product: Product) => {
-        console.log({product})
-        this.setState({product})
-    }
+   
     static contextType = CartContext
+
     render() {
         return <div>
 
             <Header />
             <PageTitle>Lista naszych aukcji</PageTitle>
-            <CartContext.Consumer>
-                {this.context.addToCart}
-
-
-            </CartContext.Consumer>
             <div className="card p-5">
                 <div className="row row-cols-1 row-cols-md-4">
                     {this.state.products.map(product =>
                         <Card product={product} key={product.id}
-                        onAddToCart={this.addToCart} />
+                        onAddToCart={this.context.addToCart} />
                     )}
                 </div>
             </div>

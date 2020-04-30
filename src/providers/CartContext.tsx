@@ -1,6 +1,6 @@
 import React from 'react';
 import { Product } from '../views/Product';
-import { UserContext } from './UserContext';
+
 
 interface CartItem {
     id?: number | string;
@@ -10,7 +10,7 @@ interface CartItem {
 
 interface CartState {
     items: CartItem[],
-    total: number
+    // total: number
 }
 
 type C = {
@@ -20,14 +20,14 @@ type C = {
 
 const initialCart: CartState ={
     items: [],
-    total: 0
+    // total: 0
 }
 
 export const CartContext = React.createContext<C>(
     {
         cartState: {
             items: [],
-            total: 0
+            // total: 0
         },
         addToCart() {}
     }
@@ -35,10 +35,15 @@ export const CartContext = React.createContext<C>(
 
 export class CartProvider extends React.Component {
     state = {
-        cartState: null
+        cartState: {...initialCart}
     }
+    
+
     addToCart = (product: Product) => {
         console.log('Here I am')
+        this.setState(() =>({product}))
+        initialCart.items.push({product})
+        
     }
     
     render() {
