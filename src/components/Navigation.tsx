@@ -31,7 +31,7 @@ export class Navigation extends React.Component {
                                 () => (this.context.user ?
                                     <>
                                         <span className="text-primary p-3 "><FontAwesomeIcon icon="user-circle" /> Witaj
-                                {() => (this.context.user.email)}
+                                {() => (this.context.state.user.email)}
                                             <p>{this.context.user.email}</p>
                                         </span>
                                         <NavLink exact to="/addAuction" className="nav-link text-primary" activeClassName="font-weight-bold">

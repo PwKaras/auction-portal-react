@@ -17,7 +17,6 @@ export class ProductsView extends React.Component<P, S> {
 
     state: S = {
         products: [],
-        // product: null
     }
     componentDidMount() {
         this.loadProducts()
