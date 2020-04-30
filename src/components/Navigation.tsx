@@ -28,21 +28,21 @@ export class Navigation extends React.Component {
                     <form className="navbar-nav">
                         <UserContext.Consumer>
                             {
-                                () => (this.context.user ? 
-                                <>
-                                <span className="text-primary p-3 "><FontAwesomeIcon icon="user-circle" /> Witaj 
-                                {/* {() => (this.context.user.email)}
-                                {this.context.user.email} */}
-                                </span>
-                                <NavLink exact to="/addAuction" className="nav-link text-primary" activeClassName="font-weight-bold">
-                                <Button><FontAwesomeIcon icon="plus" /> Dodaj produkt </Button>
-                                </NavLink>        
-                                </>
-                                    : 
+                                () => (this.context.user ?
+                                    <>
+                                        <span className="text-primary p-3 "><FontAwesomeIcon icon="user-circle" /> Witaj
+                                {() => (this.context.user.email)}
+                                            <p>{this.context.user.email}</p>
+                                        </span>
+                                        <NavLink exact to="/addAuction" className="nav-link text-primary" activeClassName="font-weight-bold">
+                                            <Button><FontAwesomeIcon icon="plus" /> Dodaj produkt </Button>
+                                        </NavLink>
+                                    </>
+                                    :
                                     <NavLink exact to="/log" className="nav-link text-primary" activeClassName="font-weight-bold">
                                         <Button><FontAwesomeIcon icon="sign-in-alt" /> Logowanie</Button>
                                     </NavLink>
-                                    )
+                                )
                             }
                         </UserContext.Consumer>
 

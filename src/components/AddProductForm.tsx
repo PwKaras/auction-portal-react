@@ -45,7 +45,6 @@ export class AddProductFrom extends React.Component<P, S> {
             image: this.state.image,
             description: this.state.description,
             price: this.state.price,
-            // id?:
         }
         axios.post('http://localhost:9000/products', {
             ...newProduct

@@ -37,7 +37,9 @@ export class CartProvider extends React.Component {
     state = {
         cartState: null
     }
-    addToCart = (product: Product) => {}
+    addToCart = (product: Product) => {
+        console.log('Here I am')
+    }
     
     render() {
         return <CartContext.Provider value={{
