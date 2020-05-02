@@ -4,32 +4,62 @@ import { PageTitle } from '../components/PageTitle';
 import { InfoCard } from '../components/InfoCard';
 import { CartContext } from '../providers/CartContext'
 import { ProductInBasket } from '../components/ProductInBasket';
+import { Product } from './Product';
+import { type } from 'os';
 
+type P = {
+    product: Product,
+}
 
-export class BasketView extends React.Component {
+export class BasketView extends React.Component <P>{
 
-    static contexType = CartContext
+    static contextType = CartContext
 
     render() {
         return (
             <>
                 <Header />
                 <PageTitle>Mój koszyk</PageTitle>
-                <InfoCard>
-                    <CartContext.Consumer>
-                        {() => (
-                            this.context.cartState ?
-                                <>
-                                    <span>Masz już pierwszy produkt</span>
-                                    <ProductInBasket />
-                                </>
-                                : <span>chcemy tu być - twoje produkty</span>
-                        )
 
-                        }
-                    </CartContext.Consumer>
+                <div className="container mt-5">
+                    <div className="card col-10 m-auto p-3 shadow text-center font-weight-bold">
+                        <CartContext.Consumer>
+                            {() => (
+                                this.context.cartState.items.length ?
+                                    <>
+                                        <span>Masz już pierwszy produkt
+                                    </span>
+                                        <div className="row">
+                                            <div className="col-sm">
+                                                Produkt</div>
+                                            <div className="col-sm">
+                                                Cena</div>
+                                            <div className="col-sm">
+                                                Ilość</div>
+                                            <div className="col-sm">
+                                                Suma</div>
+                                        </div>
+                                       { this.context.cartState.items.map((product: Product) => {
+                                           
+                                           console.table({product})
+                                    return (
+                                        <ProductInBasket
+                                        key={product.id}
+                                        product={product}/>
+                                        )   
+                                    }
+                                       )}
+                                            
+    
+                                    </>
+                                    : <span>chcemy tu być - twoje produkty</span>
+                            )
+                            }
+                        </CartContext.Consumer>
+                    </div>
+                </div>
 
-                </InfoCard>
+
             </>
         )
 

@@ -28,7 +28,7 @@ export class LoginForm extends React.Component<P, S>{
         })
             .then(resp => {
                 if (resp.data.length) {
-                    this.context.setUser(resp.data)
+                    this.context.setUser(resp.data[0])
                 }
                 else { console.log('try again') }
             })
