@@ -6,7 +6,7 @@ type P = {
     key: number | undefined
 }
 
-export const ProductInBasket = (props: P) => (
+export const ProductInBasket = ({...props}) => (
     <>
         <div className="container">
 

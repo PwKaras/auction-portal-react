@@ -41,10 +41,10 @@ export class BasketView extends React.Component <P>{
                                         </div>
                                        { this.context.cartState.items.map((product: Product) => {
                                            
-                                           console.table({product})
+                                           console.table({...product})
                                     return (
                                         <ProductInBasket
-                                        key={product.id}
+                                        key= {product.id}
                                         product={product}/>
                                         )   
                                     }
