@@ -1,84 +1,106 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Product } from '../views/Product';
 
-interface CartItem {
-    id?: number | string;
-    product: Product;
 
-}
-
-interface CartState {
-    items: CartItem[],
-    // total: number
-}
-
-type C = {
-    product: Product | null;
-    cartState: CartState | null;
-    addToCart(product: Product | null): void
-}
-
-const initialCart: CartState = {
-    items: [],
-    // total: 0
-}
-
-export const CartContext = React.createContext<C>(
+export const CartContext = React.createContext<any>(
     {
-        product: {
-            name: "",
-            description: "",
-            image: "",
-            price: 0
-        },
-        cartState: {
-            items: [],
-            // total: 0
-        },
-        addToCart() { }
+        items: [] as CartItem[],
+        addToCart: (product: Product, quantity: CartItem["quantity"]) => { }
     }
 );
 
-export class CartProvider extends React.Component {
-    state = {
-        cartState: { ...initialCart },
-        product: {
-            name: "",
-            description: "",
-            image: "",
-            price: 0
-        }
-    }
+
+interface CartItem {
+    id?: number;
+    quantity?: number;
+    // productId: number;
+    readonly product: Product;
+};
+
+interface CartState {
+    items: CartItem[],
+    total: number
+};
+
+const initialCart: CartState = {
+    items: [],
+    total: 0
+};
+
+const CartProvider = (props: { children: React.ReactNode; }) => {
+    const [cartState, setCartState] = useState(initialCart);
 
 
-    addToCart = (product: Product) => {
-        console.log('Here I am')
-        this.setState(() => ({ ...product }))
-        // console.log({...product})
-        initialCart.items.push({product})
-
-        const quantity = 0
-        initialCart.items.forEach(p =>{ 
-            if (p.product.name == this.state.product.name)
-            console.log({...product}) })
-        // this.context.state.items.forEach((p: { id: any; }) => {
-        //     if (p.id == product.id) {
-        //         console.log('hello1')
-        //         // const newId = items
-        //     }
+    const addToCart = (product: Product, quantity: CartItem["quantity"] = 0) => {
+        // const price = product.price
+        // quantity++
+        // setCartState({
+        //     ...cartState,
+        //     items: [...cartState.items, { product, quantity }],
+        //     total: cartState.total + 2,
         // });
-    }
 
-
-        render() {
-            return <CartContext.Provider value={{
-                product: this.state.product,
-                    cartState: this.state.cartState,
-                addToCart: this.addToCart
-            }}>
-                {this.props.children}
-            </CartContext.Provider>
+        if (!cartState.items.length) {
+            quantity++;
+            console.log("hello");
+            setCartState({
+                ...cartState,
+                items: [...cartState.items, { product, quantity }],
+                total: cartState.total + 2,
+            });
+        }
+        else if (cartState.items.find(function (item) {
+            if (
+                product.id === item.product.id && item.quantity
+            ) {
+                const ind = cartState.items.indexOf(item);
+                console.log(ind)
+                console.log(cartState.items[ind])
+                console.log(item.quantity)
+                item.quantity++
+                return ind
+            }
+            else {
+                quantity = 1
+                console.log("else quantity")
+                setCartState({
+                    ...cartState,
+                    items: [...cartState.items, { product, quantity }],
+                    total: cartState.total + 2,
+                });
+                console.log("else setCartSta")
+            }
+        })) {
+            return cartState.items
         }
     }
 
+
+    // const addToCart = (product: Product) => {
+    //     cartState.items.find(item => {
+    //         if (item.id === product.id) {
+    //             console.log("I`have been there");
+    //         } else {
+    //             setCartState({
+    //                 ...cartState,
+    //                 items: [...cartState.items, { product }]
+    //             })
+    //         }
+    //     })
+    // }
+
+
+    return (
+        <>
+            <CartContext.Provider value={{
+                items: cartState.items,
+                addToCart
+            }}>
+                {props.children}
+            </CartContext.Provider>
+        </>
+    )
+}
+
+export default CartProvider
 

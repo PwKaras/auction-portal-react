@@ -11,7 +11,7 @@ import { BasketView } from './views/BasketView';
 import { LoginView } from './views/LoginView';
 import './App.css';
 import { UserProvider } from './providers/UserContext';
-import { CartProvider } from './providers/CartContext';
+import  CartProvider  from './providers/CartContext';
 
 
 library.add(faCartPlus, faImage, faEdit, faTag, faGavel, faPlus, faShoppingBasket, faSignInAlt, faEnvelope, faKey, faUser, faUserCircle, faSearch);

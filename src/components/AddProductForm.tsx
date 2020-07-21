@@ -46,7 +46,7 @@ export class AddProductFrom extends React.Component<P, S> {
             description: this.state.description,
             price: this.state.price,
         }
-        axios.post('http://localhost:9000/products', {
+        axios.post('http://localhost:8080/products', {
             ...newProduct
         })
             .then(resp => console.log(resp.data))
@@ -59,7 +59,7 @@ export class AddProductFrom extends React.Component<P, S> {
                 <div className="row row-cols-1 row-cols-md-2">
                     <div className="col mb-4">
                         <div className="imageIcon text-secondary text-center  fa-10x"><FontAwesomeIcon icon="image" /></div>
-                        {/* <img src="imageIcon" className="card-img-top" alt="..." /> */}
+                        <img src="imageIcon" className="card-img-top" alt="..." />
                     </div>
                     <div className="col mb-4">
                         <div className="card-body">

@@ -36,25 +36,11 @@
       "price": 300
     },
     {
-      "name": "Nowy produkt",
-      "image": "https://i.picsum.photos/id/696/200/300.jpg",
-      "description": "To jest produkt dodany z widoku add Auction",
-      "price": 71,
+      "name": "New product",
+      "image": "https://picsum.photos/id/145/200/300",
+      "description": "new product added",
+      "price": 51,
       "id": 41
-    },
-    {
-      "name": "Tabliczka",
-      "image": "https://i.picsum.photos/id/696/200/300.jpg",
-      "description": "to jest drugi dodany produkt",
-      "price": 232,
-      "id": 42
-    },
-    {
-      "name": "Produkt H",
-      "image": "https://i.picsum.photos/id/696/200/300.jpg",
-      "description": "Trzeci dodany produkt",
-      "price": 10,
-      "id": 43
     }
   ],
   "cart_items": [],
