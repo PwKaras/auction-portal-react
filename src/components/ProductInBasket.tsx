@@ -18,7 +18,7 @@ export const ProductInBasket = ({...props}) => (
                     {props.product.price}
                 </div>
                 <div className="col-sm">
-                    ilość
+                    ilość 
                 </div>
                 <div className="col-sm">
                     total

@@ -42,7 +42,7 @@ export const BasketView = (props: Props) => {
                                 <div className="col-sm">
                                     Suma</div>
                             </div>
-                            {items.map((item: { id: string | number | undefined; product: any; }) => <ProductInBasket key={item.product.id} product = {item.product}/> )}
+                            {items.map((item: { id: string | number | undefined; product: any; }) => <ProductInBasket key={item.product.id} product = {item.product}/>)}
                     {/* items.map(item =>
                         <ProductInBasket
                             key={item.id}
