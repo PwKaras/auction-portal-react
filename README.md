@@ -1,3 +1,14 @@
+Auction portal:
+- auctions list,
+-add product to cart,
+- cart view,
+- logging view,
+- adding auction by logged user.
+
+to start:
+npm run api  - to run json.server
+npm start - to run application
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
